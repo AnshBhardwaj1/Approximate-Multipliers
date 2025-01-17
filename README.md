@@ -1,39 +1,40 @@
-# Approximate 4x4-bit Multiplier
+# **Approximate 4x4-bit Multiplier**  
 
-## Description
-This project implements an approximate 4x4-bit multiplier in Verilog. The design reduces hardware complexity by ignoring certain lower-bit contributions, leading to lower power consumption and LUT usage while maintaining accuracy within acceptable limits.
+## **Description**  
+This project implements an **approximate 4x4-bit multiplier** in Verilog. The design reduces hardware complexity by ignoring certain lower-bit contributions, leading to **lower power consumption** and **LUT usage** while maintaining accuracy within acceptable limits.  
 
-## Approximation Technique
-The approximation is achieved by:
-- Prioritizing MSB contributions and ignoring lower-order bit multiplications
-- Reducing the impact of LSB interactions to optimize LUT utilization
-- Using selective bit truncation for reduced computation complexity
+## **Approximation Technique**  
+The approximation is achieved by:  
+- Prioritizing **MSB contributions** and reducing lower-bit interactions  
+- Using **selective bit truncation** to reduce hardware complexity  
+- Reducing **LUT utilization** while keeping Mean Relative Error (MRE) **under 10%**  
 
-## Test Bench and Verification
-- The provided test bench (`multiplier_tb.v`) was used to verify the design.
-- The `approx_multiplier` module was tested in **Vivado**, and the **Mean Relative Error (MRE) was observed to be <10%**, with an effort to reduce it further to <5%.
+## **Test Bench and Verification**  
+- The provided test bench (`testbench.sv`) was used to verify the design.  
+- The `approx_multiplier` module was tested using **Icarus Verilog (iverilog) in an online compiler**.  
+- The **simulation output is attached as a screenshot**.  
 
-## Results
-### Mean Relative Error (MRE)
-- **MRE:** <10% (Screenshot attached)
+## **Steps to Run in an Online Compiler**  
+1. Upload `design.sv` and `testbench.sv`.  
+2. Run the following command in **Icarus Verilog (iverilog)**:  
+   ```sh
+   iverilog -Wall -g2012 design.sv testbench.sv && unbuffer vvp a.out
+   ```  
+3. Observe the **simulation output** in the console.  
+4. Take **screenshots** of the simulation results.  
 
-### Power and Utilization Reports
-- **LUTs:** ≤12 (Compared to 16 in a real multiplier)
-- **Power consumption:** Screenshot attached
-- **Utilization report:** Screenshot attached
+## **Results**  
+### **Mean Relative Error (MRE)**  
+- **MRE:** <10% (Screenshot attached)  
 
-## Steps to Run in Vivado
-1. Set `approx_multiplier` as the top module.
-2. Run synthesis (`Flow -> Run Synthesis`).
-3. Open the synthesized design (`Flow -> Open Synthesized Design`).
-4. Generate utilization and power reports (`Report Utilization` & `Report Power`).
-5. Verify **MRE** in the TCL console after running the testbench.
+### **Simulation Output**  
+- The output from the testbench verifies the correctness of the approximate multiplier.  
+- Screenshot of the simulation output is attached.  
 
-## Screenshots
-- **MRE Output**
-- **Power Report**
-- **Utilization Report**
+## **Screenshots**  
+- **Simulation Output (Console Log)**  
+- **Code Screenshot (`full.sv`)**  
 
 ## Submission Details
-- GitHub Repository Link: [Insert Your Repo Link Here]
+- GitHub Repository Link: (https://github.com/AnshBhardwaj1/Approximate-Multipliers)
 
