@@ -10,7 +10,7 @@ module multiplier_tb;
     real relative_error;       // Relative error for a single test
 
     // Instantiate the approximate multiplier
-    YOUR_MULTIPLIER_MODULE_HERE uut (
+    approx_multiplier uut (
         .A(A),
         .B(B),
         .result(approx_result)
